@@ -1,0 +1,18 @@
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.iframe-container {
+    position: relative;
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+iframe {
+    border: none;
+    margin: 0;
+    padding: 0;
+}

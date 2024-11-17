@@ -1,0 +1,30 @@
+<template>
+	<div class="container">
+		<lightning-card title="Wikipedia iframe Example">
+			<div class="slds-p-around_medium">
+				<div class="iframe-container">
+					<iframe
+						src={iframeUrl}
+						width="100%"
+						height="600"
+						onload={handleIframeLoad}
+						onerror={handleIframeError}
+						lwc:dom="manual">
+					</iframe>
+				</div>
+
+				<!-- Status Display -->
+				<div class="slds-p-top_small">
+					<template if:true={isLoading}>
+						<lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+					</template>
+					<template if:true={hasError}>
+						<div class="slds-text-color_error">
+							{errorMessage}
+						</div>
+					</template>
+				</div>
+			</div>
+		</lightning-card>
+	</div>
+</template>
