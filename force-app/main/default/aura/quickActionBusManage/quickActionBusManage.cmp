@@ -1,0 +1,13 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,force:hasSObjectName">
+	<aura:html tag="style">
+		.modal-container.slds-modal__container {
+			width: auto !important;
+			max-width: 50% !important;
+		}
+
+		.modal-container.slds-modal__container > .modal-header.slds-modal__header {
+			width: 90%;
+		}
+	</aura:html>
+	<c:busLineManagement recordId="{!v.recordId}" sObjectName="{!v.sObjectName}" onclose="{!c.onCloseQuickAction}"/>
+</aura:component>

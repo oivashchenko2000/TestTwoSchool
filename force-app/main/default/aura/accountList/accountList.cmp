@@ -1,0 +1,37 @@
+<aura:component description="accountList" controller="AccountController">
+	<aura:attribute name="accounts" type="Account[]" />
+	<aura:attribute name="isLoading" type="Boolean" default="false" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<div class="slds-card">
+		<div class="slds-card__header">
+			<h2 class="slds-card__header-title">Accounts</h2>
+		</div>
+
+		<div class="slds-card__body">
+			<aura:if isTrue="{!v.isLoading}">
+				<lightning:spinner alternativeText="Loading"/>
+			</aura:if>
+
+			<table class="slds-table slds-table_bordered">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Industry</th>
+					<th>Rating</th>
+				</tr>
+				</thead>
+				<tbody>
+				<aura:iteration items="{!v.accounts}" var="acc">
+					<tr>
+						<td>{!acc.Name}</td>
+						<td>{!acc.Industry}</td>
+						<td>{!acc.Rating}</td>
+					</tr>
+				</aura:iteration>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</aura:component>

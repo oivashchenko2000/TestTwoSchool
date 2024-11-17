@@ -1,0 +1,13 @@
+.pillSize {
+	width : 100%;
+	margin-right: 100px;
+}
+
+.slds-modal__content {
+	overflow: initial;
+}
+
+.slds-dropdown {
+	position: initial;
+	margin-left: 110px;
+}

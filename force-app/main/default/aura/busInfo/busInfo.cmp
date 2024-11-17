@@ -1,0 +1,58 @@
+<aura:component controller="BusInfoController" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	<aura:attribute name="buses" type="List"/>
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	
+	<lightning:card title="Route Information">
+		<lightning:recordViewForm recordId="{!v.recordId}" class="slds-p-left_small" objectApiName="Account">
+			<lightning:outputField fieldName="TotalBuses__c"/>
+			<lightning:outputField fieldName="TotalBusesInUse__c"/>
+			<lightning:outputField fieldName="TotalAvailable__c"/>
+		</lightning:recordViewForm>
+		<div class="slds-scrollable">
+			<table class="slds-table slds-table--bordered slds-table--cell-buffer">
+				<thead>
+					<tr class="slds-text-title_caps">
+						<th scope="col">
+							<div class="slds-truncate" title="Bus Name">Bus Name</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="Mark">Mark</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="Model">Model</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="Color">Color</div>
+						</th>
+						<th scope="col">
+							<div class="slds-truncate" title="Lines">Lines</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<aura:iteration items="{!v.buses}" var="bus">
+						<tr>
+							<th scope="row">
+								<div class="slds-truncate" title="{!bus.name}">{!bus.name}</div>
+							</th>
+							<th scope="row">
+								<div class="slds-truncate" title="{!bus.mark}">{!bus.mark}</div>
+							</th>
+							<th scope="row">
+								<div class="slds-truncate" title="{!bus.model}">{!bus.model}</div>
+							</th>
+							<th scope="row">
+								<div class="slds-truncate" title="{!bus.color}">{!bus.color}</div>
+							</th>
+							<th scope="row">
+								<aura:iteration items="{!bus.lines}" var="line">
+									<div class="slds-truncate" title="{!line.name}">{!line.name}</div>
+								</aura:iteration>
+							</th>
+						</tr>
+					</aura:iteration>
+				</tbody>
+			</table>
+		</div>
+	</lightning:card>
+</aura:component>

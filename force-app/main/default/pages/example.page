@@ -1,0 +1,13 @@
+<apex:page >
+
+        <div>
+        <p>
+            Hello world!
+        </p>
+    </div>
+    
+    <script>
+    console.log('Hello world');
+    </script>
+
+</apex:page>

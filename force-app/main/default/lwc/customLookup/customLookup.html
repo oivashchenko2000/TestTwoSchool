@@ -1,0 +1,27 @@
+<template>
+	<div class="slds-form-element">
+		<div class="slds-form-element__control">
+			<div class="slds-combobox_container">
+				<div class={boxClass}>
+					<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right">
+						<lightning-pill class="pillSize" if:true={selectedLine.id} label={selectedLine.name} onremove={handleRemovePill}></lightning-pill>
+						<div class="slds-p-top_none" if:false={selectedLine.id}>
+							<lightning-input type="search" onclick={handleClick} onblur={onBlur} onchange={onChange} variant="label-hidden" placeholder="Search..."></lightning-input>
+						</div>
+					</div>
+					<div class="slds-dropdown slds-dropdown_fluid">
+						<ul class="slds-listbox slds-listbox_vertical">
+							<template for:each={currentLines} for:item="line">
+								<li key={line.value} onclick={onSelect} data-id={line.value} data-name={line.label}>
+									<span class="slds-lookup__item-action slds-lookup__item-action--label">
+										<span class="slds-truncate">{line.label}</span>
+									</span>
+								</li>
+							</template>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

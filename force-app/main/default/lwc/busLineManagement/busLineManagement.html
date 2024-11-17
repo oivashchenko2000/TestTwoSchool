@@ -1,0 +1,59 @@
+<template>
+	<lightning-spinner if:true={showSpinner} alternative-text="Loading" size="small"></lightning-spinner>
+	<div role="dialog" class="slds-modal slds-fade-in-open">
+		<div class="slds-modal__container">
+			<div class="slds-modal__header">
+				<lightning-button-icon
+					alternative-text="Close this window"
+					class="slds-modal__close"
+					icon-class="slds-button_icon-inverse"
+					icon-name="utility:close"
+					onclick={closeQuickAction}
+					size="large"
+					title="Close this window"
+					variant="bare">
+				</lightning-button-icon>
+				<p class="slds-text-heading_medium">Line Management</p>
+			</div>
+			<div class="slds-modal__content slds-p-around_medium">
+				<c-confirm-window if:true={confirmModalAction.isOpen} onclose={closeConfirmModal} message={confirmModalAction.message} onperform={performAction}></c-confirm-window>
+				<lightning-record-view-form record-id={recordId} object-api-name="Bus__c">
+					<div class="slds-grid">
+						<div class="slds-size_1-of-2">
+							<lightning-output-field field-name="Name"></lightning-output-field>
+							<lightning-output-field field-name="Color__c"></lightning-output-field>
+						</div>
+						<div class="slds-size_1-of-2">
+							<lightning-output-field field-name="Model__c"></lightning-output-field>
+							<lightning-output-field field-name="Mark__c"></lightning-output-field>
+						</div>
+					</div>
+				</lightning-record-view-form>
+				<div>
+					<lightning-datatable
+						if:true={lines.length} 
+						key-field="name"
+						data={lines}
+						columns={columns}
+						hide-checkbox-column=true
+						onrowaction={openConfirmModal}> 
+					</lightning-datatable>
+					<div if:false={lines.length} class="slds-text-align_center slds-size_2-of-2 slds-m-top_x-small slds-text-heading_medium">{emptyMessage}</div>
+				</div>
+				<lightning-button variant="brand" class="slds-float_right slds-p-top_medium" label="+ Add" if:false={visible} onclick={changeVisible} title="+ Add"></lightning-button>
+				<div class="slds-grid slds-float_right" if:true={visible}>
+					<div class="slds-size_1-of-2 slds-p-top_medium">
+						<c-custom-lookup lines={options}></c-custom-lookup>
+					</div>
+					<div class="slds-size_1-of-2 slds-p-left_x-small slds-p-top_medium">
+						<lightning-button variant="brand" label="Add" class="slds-p-right_small" onclick={openConfirmModal} title="Add"></lightning-button>
+						<lightning-button variant="brand" label="Close" onclick={changeVisible} title="Close"></lightning-button>
+					</div>
+				</div>
+			</div>
+			<div class="slds-modal__footer slds-float_right">
+				<lightning-button variant="brand" label="Close" title="Close" onclick={closeQuickAction}></lightning-button>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,10 @@
+<template>
+    <lightning-input label="Username">
+    </lightning-input>
+    <lightning-button label="Find" onclick={load}>    
+    </lightning-button>
+    <br/>
+        <template for:each={contacts} for:item="contact">
+            <p key={contact}>{contact}</p>
+</template>
+</template>

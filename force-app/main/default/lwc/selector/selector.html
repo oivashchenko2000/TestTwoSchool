@@ -1,0 +1,6 @@
+<template>
+    <lightning-card title="User Details " icon-name="action:user">
+        <template if:true={userData.data}>{userData.data.Name} </template>
+  <lightning-button title="Insert Template" label="button"  onclick={onEmailAction} ></lightning-button>
+    </lightning-card>
+</template>

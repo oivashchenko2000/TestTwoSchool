@@ -1,0 +1,5 @@
+<aura:component description="messageExample">
+	<aura:attribute name="msg" type="String"/>
+	<lightning:input aura:id="messageInput" value="{!v.msg}" label="Test"/>
+	<div aura:id="msg">{!v.msg}</div>
+</aura:component>

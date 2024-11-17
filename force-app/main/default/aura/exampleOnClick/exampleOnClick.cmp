@@ -1,0 +1,10 @@
+<aura:component controller="AccountController" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="allItems" type="List" />
+
+    <lightning:button label="Get All" onclick="{!c.doInit}"></lightning:button>
+    <lightning:card footer="Card Footer" title="Accounts">
+    <aura:iteration items="{!v.allItems}" var="item">
+        <p>{!item.title}</p>
+    </aura:iteration>
+    </lightning:card>
+    </aura:component>

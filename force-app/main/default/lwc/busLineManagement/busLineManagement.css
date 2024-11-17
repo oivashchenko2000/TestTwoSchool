@@ -1,0 +1,4 @@
+.slds-modal > .slds-modal__container {
+	width: auto !important;
+	max-width: 100% !important;
+}
