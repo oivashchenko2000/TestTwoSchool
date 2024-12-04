@@ -7,11 +7,11 @@ export default class IframeExample extends LightningElement {
 	@track errorMessage = '';
 
 	connectedCallback() {
-		window.addEventListener('message', this.handleMessage.bind(this));
+		window.addEventListener('onload', this.handleMessage.bind(this));
 	}
 
 	disconnectedCallback() {
-		window.removeEventListener('message', this.handleMessage.bind(this));
+		window.removeEventListener('onload', this.handleMessage.bind(this));
 	}
 
 	handleIframeLoad(event) {

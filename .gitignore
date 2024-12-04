@@ -38,3 +38,11 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+# Added by Illuminated Cloud
+/IlluminatedCloud/
+/out/
+target/
+/.illuminatedCloud/
+**/tsconfig*.json
+**/*.tsbuildinfo
