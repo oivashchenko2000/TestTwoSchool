@@ -1,0 +1,25 @@
+<template>
+	<lightning-card title="Account Updates Subscriber" icon-name="standard:account">
+		<div class="slds-m-around_medium">
+			<lightning-button
+				label="Subscribe"
+				onclick={handleSubscribe}
+				class="slds-m-right_x-small">
+			</lightning-button>
+			<lightning-button
+				label="Unsubscribe"
+				onclick={handleUnsubscribe}>
+			</lightning-button>
+
+			<div class="slds-m-top_medium">
+				<h2>Received Messages:</h2>
+				<template for:each={receivedMessages} for:item="message">
+					<div key={message.id} class="slds-box slds-m-top_x-small">
+						<p>Time: {message.time}</p>
+						<p>Message: {message.message}</p>
+					</div>
+				</template>
+			</div>
+		</div>
+	</lightning-card>
+</template>
