@@ -10,4 +10,9 @@ public  class AccountController {
             LIMIT 10
         ];
     }
+
+    @AuraEnabled
+    public static void deleteAccounts(Id recordId) {
+        Database.delete(recordId);
+    }
 }
