@@ -15,4 +15,9 @@ public  class AccountController {
     public static void deleteAccounts(Id recordId) {
         Database.delete(recordId);
     }
+
+    @AuraEnabled
+    public static void updateAccount(Id recordId) {
+
+    }
 }
